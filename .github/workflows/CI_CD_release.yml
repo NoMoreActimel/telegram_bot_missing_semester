@@ -1,9 +1,12 @@
 name: CI & CD release
 
 on:
-  push:
-    branches:
-      [main]
+  release:
+    types: [published]
+  workflow_run:
+    workflows: ['CI and CD build']
+    types:
+      - completed
 
 jobs:
   build:
