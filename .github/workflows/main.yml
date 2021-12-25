@@ -1,4 +1,4 @@
-name: CI
+name: CI & CD
 
 on:
   push:
@@ -31,6 +31,11 @@ jobs:
         API: ${{ secrets.API_KEY }}
       run: docker build . --file Dockerfile --tag py-docker
 
+on:
+  release:
+    types: [published]
+
+jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
