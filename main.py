@@ -31,10 +31,8 @@ bottom_outerwear_images = [
     "https://sartoreale.ru/upload/iblock/339/vvyo4tdl0s9y0zhcunuwvibsro5a0zsn.jpg"
 ]
 
-token_file = open("token.txt", 'r')
-
-token = environ.get('API')
-bot = telebot.TeleBot(token_file.readline())
+token = environ.get('TELEGRAM_BOT_TOKEN')
+bot = telebot.TeleBot(token)
 
 
 @bot.message_handler(commands=['start'])
