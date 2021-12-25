@@ -40,7 +40,7 @@ bot = telebot.TeleBot(token_file.readline())
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, "hello there!")
-    bot.send_message(message.chat.id, "This bot will give you outfit ideas for the day")
+    bot.send_message(message.chat.id, "This bot will give you outfit ideas for the day.")
     bot.send_message(message.chat.id, "commands:\n/start\n/help\n/new_clothes\n/kill_myself")
 
 
@@ -81,6 +81,5 @@ def send_new_clothes(message):
             bot.send_message(message.chat.id, "Outerwear:")
             bot.send_photo(message.chat.id, upper_outerwear_images[upper_outerwear_coin])
             bot.send_photo(message.chat.id, bottom_outerwear_images[bottom_outerwear_coin])
-
 
 bot.infinity_polling()
